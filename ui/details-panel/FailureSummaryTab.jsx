@@ -161,7 +161,7 @@ function ErrorsList(props) {
 }
 
 
-function FailureSummaryPanel(props) {
+function FailureSummaryTab(props) {
   const escapeHTMLFilter = props.$injector.get('$filter')('escapeHTML');
   const highlightCommonTermsFilter = props.$injector.get('$filter')('highlightCommonTerms');
   const $timeout = props.$injector.get('$timeout');
@@ -227,7 +227,7 @@ function FailureSummaryPanel(props) {
   );
 }
 
-FailureSummaryPanel.propTypes = {
+FailureSummaryTab.propTypes = {
   tabs: PropTypes.object,
   suggestions: PropTypes.array,
   filerInAddress: PropTypes.bool,
@@ -244,5 +244,5 @@ FailureSummaryPanel.propTypes = {
   logParseStatus: PropTypes.string
 };
 
-treeherder.directive('failureSummaryPanel', ['reactDirective', '$injector', (reactDirective, $injector) =>
-reactDirective(FailureSummaryPanel, undefined, {}, { $injector })]);
+treeherder.directive('failureSummaryTab', ['reactDirective', '$injector', (reactDirective, $injector) =>
+reactDirective(FailureSummaryTab, undefined, {}, { $injector })]);
