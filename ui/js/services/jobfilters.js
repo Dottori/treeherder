@@ -296,7 +296,9 @@ treeherder.factory('thJobFilters', [
             if (value) {
                 const oldQsVal = _getFiltersOrDefaults(field);
                 if (oldQsVal && oldQsVal.length) {
-                    newQsVal = _.without(oldQsVal, value);
+                    newQsVal = oldQsVal.filter(function (filterValue) {
+                      return filterValue !== value;
+                    });
                 }
                 if (!newQsVal || !newQsVal.length || _matchesDefaults(field, newQsVal)) {
                     newQsVal = null;
